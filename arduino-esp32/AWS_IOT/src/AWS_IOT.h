@@ -37,8 +37,8 @@ class AWS_IOT{
     private:
     
     public:
-    int connect(char *hostAddress, char *clientID);
-    int publish(char *pubtopic,char *pubPayLoad);
+    int connect(const char *hostAddress, const char *clientID);
+    int publish(const char *pubtopic,char *pubPayLoad);
     int subscribe(char *subTopic, pSubCallBackHandler_t pSubCallBackHandler);
 };
 
