@@ -45,7 +45,7 @@ and that both those copyright notices and this permission notice appear in suppo
 #include "freertos/event_groups.h"
 #include "esp_system.h"
 #include "esp_wifi.h"
-#include "esp_event_loop.h"
+#include "esp_event.h"
 #include "esp_log.h"
 #include "esp_vfs_fat.h"
 #include "driver/sdmmc_host.h"
@@ -113,7 +113,7 @@ void disconnectCallbackHandler(AWS_IoT_Client *pClient, void *data)
 }
 
 
-int AWS_IOT::connect(char *hostAddress, char *clientID)
+int AWS_IOT::connect(const char *hostAddress, const char *clientID)
 {
     const size_t stack_size = 36*1024;
     
@@ -190,7 +190,7 @@ int AWS_IOT::connect(char *hostAddress, char *clientID)
 }
 
 
-int AWS_IOT::publish(char *pubtopic,char *pubPayLoad)
+int AWS_IOT::publish(const char *pubtopic,char *pubPayLoad)
 {
     IoT_Error_t rc;
 
